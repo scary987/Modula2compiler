@@ -11,6 +11,4 @@ VAR
 
 BEGIN
 	f := 2 + pi;
-	<>
-	:=
 END HelloWorld.

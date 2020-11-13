@@ -250,7 +250,7 @@ int main(int argc, char const *argv[])
     {   
         if(yytext==NULL){
             yytext = (char *) malloc(MAXLENGTH * sizeof(char));
-            printf("%s",yytext);
+            {for(int xd = 0; xd<yycounter;xd++)printf("%c",yytext[xd]);printf("\n");};
         }
         c = fgetc(stdin);
         if(c==EOF){
@@ -265,7 +265,7 @@ int main(int argc, char const *argv[])
                     &&!is_number(yytext,yycounter)
                     &&!is_delimiter(yytext,yycounter)
                     &&!is_identifier(yytext,yycounter)
-                    )   printf("%s\n",yytext);
+                    )   {for(int xd = 0; xd<yycounter;xd++)printf("%c",yytext[xd]);printf("\n");};
                 if(yytext!=NULL)
                     free(yytext);
                 yycounter=0;
@@ -282,7 +282,7 @@ int main(int argc, char const *argv[])
                         &&!is_number(yytext,yycounter)
                         &&!is_delimiter(yytext,yycounter)
                         &&!is_identifier(yytext,yycounter)
-                        )   printf("%s\n",yytext);
+                        )  {for(int xd = 0; xd<yycounter;xd++)printf("%c",yytext[xd]);printf("\n");};
                 yycounter=0;
                 free(yytext);
                 yytext = (char *) malloc(MAXLENGTH * sizeof(char));
@@ -301,7 +301,7 @@ int main(int argc, char const *argv[])
                     &&!is_number(yytext,yycounter)
                     &&!is_delimiter(yytext,yycounter)
                     &&!is_identifier(yytext,yycounter)
-                    ) printf("%s\n",yytext);
+                    ) {for(int xd = 0; xd<yycounter;xd++)printf("%c",yytext[xd]);printf("\n");};
             }
             free(yytext);
             yycounter=0;
@@ -309,7 +309,7 @@ int main(int argc, char const *argv[])
             continue;
 
         }
-   
+            //for(int xd = 0; i<yycounter;i++)printf(%c,yytext[xd]);
         else{
             //maybe check for single-digit operators here
             yytext[yycounter]=c;
